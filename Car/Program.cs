@@ -68,15 +68,11 @@
             if (Console.ReadLine().ToLower() == "yes")
             {
                 myCar.StartEngine();
+                theirCar.StartEngine();
             }
             else
             {
                 Environment.Exit(0);
-            }
-
-            if (myCar.fuelLevel <= 0)
-            {
-                Console.WriteLine("Out of fuel! You made it " + myCar.distance + " km");
             }
 
             myCar.ShowInfo();
@@ -86,6 +82,13 @@
             while (myCar.fuelLevel > 0 && myCar.engineOn)
             {
                 myCar.Drive();
+                theirCar.Drive();
+            }
+
+            if (myCar.fuelLevel <= 0)
+            {
+                Console.WriteLine("Out of fuel! You made it " + myCar.distance + " km");
+                Console.WriteLine("Out of fuel! They made it " + theirCar.distance + " km");
             }
         }
 
