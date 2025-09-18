@@ -8,13 +8,12 @@
 
             myCar.brand = "Jeep";
             myCar.color = "Red";
-            myCar.year = 2020;
+            myCar.maxSpeed = 2020;
             myCar.horsePower = 300;
-            myCar.gears = 8;
             myCar.engineOn = false;
 
 
-            Console.WriteLine($"Brand: {myCar.brand} Color: {myCar.color} Year: {myCar.year} Engine: {myCar.engineOn}");
+            Console.WriteLine($"Brand: {myCar.brand} Color: {myCar.color} Year: {myCar.maxSpeed} Engine: {myCar.engineOn}");
         }
     }
 
