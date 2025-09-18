@@ -90,6 +90,14 @@
                 Console.WriteLine("Out of fuel! You made it " + myCar.distance + " km");
                 Console.WriteLine("Out of fuel! They made it " + theirCar.distance + " km");
             }
+
+            Console.WriteLine("Press B to honk");
+            if(Console.ReadLine().ToLower() == "b")
+            {
+                myCar.Honk();
+                Environment.Exit(0);
+            }
+
         }
 
         static void IsFasterThan(Car yourCar, Car theirCar)
