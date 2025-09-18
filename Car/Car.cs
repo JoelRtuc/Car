@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,10 @@ namespace Car
         public string color;
         public int maxSpeed;
         public int horsePower;
+        public int distance;
         public bool engineOn;
         public double fuelLevel;
+        Fuels fuels;
 
         public enum Fuels
         {
@@ -43,9 +46,11 @@ namespace Car
 
         public void Drive()
         {
-            if (engineOn)
+            if (engineOn && fuelLevel > 0)
             {
-                Console.WriteLine("Vroom Vroom!");
+                Console.WriteLine("Vroom Vroom! " + fuelLevel);
+                fuelLevel -= horsePower * 0.01;
+                distance += maxSpeed;
             }
             else
             {
@@ -55,10 +60,10 @@ namespace Car
 
         public void ShowInfo()
         {
-            Console.WriteLine($"Brand: {brand}, Color: {color}, Max Speed: {maxSpeed} km/h, Horse Power: {horsePower} HP, Engine On: {engineOn}, Fuel Level: {fuelLevel} L");
+            Console.WriteLine($"Brand: {brand}, Color: {color}, Max Speed: {maxSpeed} km/h, Horse Power: {horsePower} HP, Engine On: {engineOn}, Fuel Level: {fuelLevel} L, Fuel Type: {fuels}");
         }
 
-        public Car(string brand = "Unknown", string color = "silver", int maxSpeed = 50, int horsePower = 100, bool engineOn = false, double fuelLevel = 0)
+        public Car(string brand = "Unknown", string color = "silver", int maxSpeed = 50, int horsePower = 100, bool engineOn = false, double fuelLevel = 0, Fuels fuelType = Fuels.Gasoline)
         {
             this.brand = brand;
             this.color = color;
@@ -66,6 +71,7 @@ namespace Car
             this.horsePower = horsePower;
             this.engineOn = engineOn;
             this.fuelLevel = fuelLevel;
+            fuels = fuelType;
         }
         
     }
