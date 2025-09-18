@@ -48,7 +48,8 @@ namespace Car
         {
             if (engineOn && fuelLevel > 0)
             {
-                Console.WriteLine("Vroom Vroom! " + fuelLevel);
+                Console.WriteLine("The car is driving...");
+                Fuel();
                 fuelLevel -= horsePower * 0.01;
                 distance += maxSpeed;
             }
@@ -63,16 +64,21 @@ namespace Car
             Console.WriteLine($"Brand: {brand}, Color: {color}, Max Speed: {maxSpeed} km/h, Horse Power: {horsePower} HP, Engine On: {engineOn}, Fuel Level: {fuelLevel} L, Fuel Type: {fuels}");
         }
 
-        public Car(string brand = "Unknown", string color = "silver", int maxSpeed = 50, int horsePower = 100, bool engineOn = false, double fuelLevel = 0, Fuels fuelType = Fuels.Gasoline)
+        public Car(string brand = "Unknown", string color = "silver", int maxSpeed = 50, int horsePower = 100, double fuelLevel = 0, Fuels fuelType = Fuels.Gasoline)
         {
             this.brand = brand;
             this.color = color;
             this.maxSpeed = maxSpeed;
             this.horsePower = horsePower;
-            this.engineOn = engineOn;
             this.fuelLevel = fuelLevel;
             fuels = fuelType;
         }
-        
+
+        public void Fuel()
+        {
+            Console.WriteLine(fuelLevel);
+            Console.WriteLine(fuels);
+        }
+
     }
 }
